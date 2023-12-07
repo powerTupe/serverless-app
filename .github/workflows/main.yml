@@ -22,22 +22,11 @@ jobs:
       
     - name: Install dependencies
       run: yarn install
-  
-    - name: Configure AWS Credentials
-      uses: aws-actions/configure-aws-credentials@v2
-      with: 
-        aws-region: 'ap-south-1'
-
-    - name: Setup Profile
-      shell: bash
-      run:
-        aws configure set aws_access_key_id ${{ secrets.AWS_ACCESS_KEY_ID }} 
-        aws configure set aws_secret_access_key ${{ secrets.AWS_SECRET_ACCESS_KEY_ID }}
-
+      
     - name: serverless deploy
       uses: serverless/github-action@master
       with:
         args: deploy
       env:
         AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
-        AWS_SECRET_ACCESS_KEY_ID: ${{ secrets.AWS_SECRET_ACCESS_KEY_ID }}
+        AWS_SECRET_ACCESS_KEY_ID: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
