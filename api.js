@@ -2,7 +2,7 @@ import db from "./db.js";
 import { GetItemCommand, PutItemCommand, UpdateItemCommand, DeleteItemCommand, ScanCommand } from "@aws-sdk/client-dynamodb";
 import { marshall, unmarshall } from "@aws-sdk/util-dynamodb";
 
-const getPost = async (event) => {
+export const getPost = async (event) => {
     const response = { statusCode: 200};
 
     try {
@@ -32,7 +32,7 @@ const getPost = async (event) => {
     return response;
 }
 
-const createPost = async (event) => {
+export const createPost = async (event) => {
     const response = { statusCode: 200};
 
     try {
