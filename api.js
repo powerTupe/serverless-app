@@ -130,7 +130,7 @@ export const getAllPost = async () => {
 
     try {
         const { Items } = await db.send(new ScanCommand({ TableName: process.env.DYNAMODB_TABLE_NAME }));
-
+        console.log({Items});
         response.body = JSON.stringify({
             message: "Successfully retrieved all posts.",
             data: Items.map((item) => unmarshall(item)),
