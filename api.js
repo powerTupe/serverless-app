@@ -125,7 +125,7 @@ export const deletePost = async (event) => {
     return response;
 };
 
-export const getAllPosts = async () => {
+export const getAllPost = async () => {
     const response = { statusCode: 200 };
 
     try {
